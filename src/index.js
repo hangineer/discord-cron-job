@@ -8,7 +8,7 @@ dotenv.config();
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once("ready", () => {
-  console.log(`Bot 已成功啟動！登入身分：${client.user.tag}`);
+  console.log(`Bot started successfully! Logged in as: ${client.user.tag}`);
   cron.schedule(
     "0 9 * * 0", // Format: min hour day month day-of-week(0-6: Sun-Sat)
     async () => {
@@ -24,7 +24,7 @@ client.once("ready", () => {
 
           const channel = client.channels.cache.get(cleanId);
           if (!channel) {
-            console.error(`找不到 ID 為 ${cleanId} 的頻道`);
+            console.error(`can't find channel with ID ${cleanId}`);
             return;
           }
 
@@ -34,12 +34,12 @@ client.once("ready", () => {
             autoArchiveDuration: 10080
           });
 
-          console.log(`已在頻道 ${cleanId} 建立 Thread`);
+          console.log(`Thread created in channel ${cleanId}`);
         });
 
         await Promise.all(promises);
       } catch (error) {
-        console.error("執行排程時發生錯誤:", error);
+        console.error("An error occurred while running the scheduled task:", error);
       }
     },
     {
