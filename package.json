@@ -4,8 +4,12 @@
   "version": "1.0.0",
   "description": "A Discord bot with cron job scheduling capabilities.",
   "main": "index.js",
+  "imports": {
+    "#*": "./src/*"
+  },
   "scripts": {
     "start": "node src/index.js",
+    "test": "TZ=Asia/Taipei node --test",
     "lint": "eslint src/",
     "format": "prettier --write src/"
   },
