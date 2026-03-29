@@ -4,6 +4,7 @@ export function generateThreadName() {
     today.toLocaleString("en-US", { timeZone: "Asia/Taipei" }),
   );
 
+  tzToday.setHours(0, 0, 0, 0);
   const month = tzToday.getMonth() + 1;
   const date = tzToday.getDate();
 
@@ -13,8 +14,6 @@ export function generateThreadName() {
   const startMonthIndex = (round - 1) * 3;
   const startOfRound = new Date(tzToday.getFullYear(), startMonthIndex, 1);
 
-  console.log("startOfRound", startOfRound);
-
   const diffTime = Math.abs(tzToday - startOfRound);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
@@ -23,6 +22,7 @@ export function generateThreadName() {
 
   const monthStr = String(month).padStart(2, "0");
   const dateStr = String(date).padStart(2, "0");
-
+  console.log(`Round.${roundStr} week${weekStr} - ${monthStr}.${dateStr} 復盤`);
+  
   return `Round.${roundStr} week${weekStr} - ${monthStr}.${dateStr} 復盤`;
 }
