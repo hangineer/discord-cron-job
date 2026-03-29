@@ -10,7 +10,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.once("ready", () => {
   console.log(`Bot 已成功啟動！登入身分：${client.user.tag}`);
   cron.schedule(
-    "0 9 * * 0", // Format: min hour day month day-of-week(0-6: Sun-Sat)
+    "* * * * *", // Format: min hour day month day-of-week(0-6: Sun-Sat)
     async () => {
       try {
         const threadName = generateThreadName();
