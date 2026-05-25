@@ -27,7 +27,7 @@
     "bot"
   ],
   "author": "Hannah Wang",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "eslint": ">=10",
     "eslint-config-prettier": "^10.1.8",
